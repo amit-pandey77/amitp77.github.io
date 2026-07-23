@@ -263,3 +263,233 @@ attributes:true
 /*=====================================================
 END
 ======================================================*/
+
+/*=====================================================
+MAIN.JS
+Part 2
+======================================================*/
+
+/*=====================================================
+ELEMENTS
+======================================================*/
+
+const progressBar = document.getElementById("scroll-progress");
+
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+const statNumbers = document.querySelectorAll(".stats h2");
+
+const revealItems = document.querySelectorAll(
+
+".card, .profile-card, .hero-left, .hero-right"
+
+);
+
+/*=====================================================
+SCROLL PROGRESS
+======================================================*/
+
+function updateProgressBar(){
+
+const scrollTop = window.scrollY;
+
+const documentHeight =
+
+document.documentElement.scrollHeight -
+
+window.innerHeight;
+
+const progress =
+
+(scrollTop / documentHeight) * 100;
+
+progressBar.style.width = progress + "%";
+
+}
+
+/*=====================================================
+BACK TO TOP
+======================================================*/
+
+function toggleScrollButton(){
+
+if(window.scrollY > 400){
+
+scrollTopBtn.classList.add("show");
+
+}else{
+
+scrollTopBtn.classList.remove("show");
+
+}
+
+}
+
+scrollTopBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+/*=====================================================
+COUNTER ANIMATION
+======================================================*/
+
+function animateCounter(element){
+
+const original =
+
+element.innerText.replace("+","");
+
+const target = parseInt(original);
+
+if(isNaN(target)) return;
+
+let current = 0;
+
+const increment =
+
+Math.max(1,Math.ceil(target/80));
+
+const timer = setInterval(()=>{
+
+current += increment;
+
+if(current >= target){
+
+current = target;
+
+clearInterval(timer);
+
+}
+
+element.innerText = current + "+";
+
+},20);
+
+}
+
+const counterObserver =
+
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+animateCounter(
+
+entry.target
+
+);
+
+counterObserver.unobserve(entry.target);
+
+}
+
+});
+
+},{
+
+threshold:0.5
+
+});
+
+statNumbers.forEach(item=>{
+
+counterObserver.observe(item);
+
+});
+
+/*=====================================================
+REVEAL ON SCROLL
+======================================================*/
+
+const revealObserver =
+
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("revealed");
+
+}
+
+});
+
+},{
+
+threshold:.15
+
+});
+
+revealItems.forEach(item=>{
+
+item.classList.add("reveal");
+
+revealObserver.observe(item);
+
+});
+
+/*=====================================================
+PARALLAX HERO
+======================================================*/
+
+const hero = document.querySelector(".hero");
+
+window.addEventListener("scroll",()=>{
+
+const offset = window.scrollY;
+
+if(hero){
+
+hero.style.transform =
+
+`translateY(${offset * 0.08}px)`;
+
+}
+
+});
+
+/*=====================================================
+OPTIMIZED SCROLL EVENTS
+======================================================*/
+
+let ticking = false;
+
+window.addEventListener("scroll",()=>{
+
+if(!ticking){
+
+requestAnimationFrame(()=>{
+
+updateProgressBar();
+
+toggleScrollButton();
+
+ticking = false;
+
+});
+
+ticking = true;
+
+}
+
+},
+{passive:true});
+
+updateProgressBar();
+
+toggleScrollButton();
+
+/*=====================================================
+END PART 2
+======================================================*/
