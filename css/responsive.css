@@ -405,3 +405,357 @@ height:42px;
 }
 
 }
+
+/*=========================================================
+  MOBILE DEVICES (768px)
+==========================================================*/
+
+@media (max-width:768px){
+
+header{
+
+padding:12px 0;
+
+}
+
+.navbar{
+
+width:94%;
+
+padding:14px 18px;
+
+border-radius:16px;
+
+}
+
+.hero{
+
+padding:120px 20px 60px;
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+gap:35px;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+line-height:1.15;
+
+}
+
+.hero h2{
+
+font-size:22px;
+
+}
+
+.typing{
+
+font-size:18px;
+
+height:32px;
+
+}
+
+.hero p{
+
+font-size:15px;
+
+max-width:100%;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+max-width:320px;
+
+justify-content:center;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+.profile-card{
+
+width:100%;
+
+max-width:360px;
+
+margin:auto;
+
+padding:28px;
+
+}
+
+.profile-card img{
+
+width:150px;
+
+height:150px;
+
+}
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+}
+
+.stats div{
+
+padding:16px;
+
+}
+
+.highlights{
+
+grid-template-columns:1fr;
+
+padding:0 20px;
+
+gap:20px;
+
+}
+
+.card{
+
+padding:28px;
+
+}
+
+footer{
+
+padding:28px 20px;
+
+font-size:14px;
+
+}
+
+}
+
+/*=========================================================
+  LARGE PHONES (576px)
+==========================================================*/
+
+@media (max-width:576px){
+
+.hero{
+
+padding-top:110px;
+
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero h2{
+
+font-size:20px;
+
+}
+
+.badge{
+
+font-size:13px;
+
+padding:8px 16px;
+
+}
+
+.profile-card{
+
+padding:24px;
+
+}
+
+.profile-card h3{
+
+font-size:24px;
+
+}
+
+.profile-card img{
+
+width:130px;
+
+height:130px;
+
+}
+
+.stats{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.stats h2{
+
+font-size:22px;
+
+}
+
+.social-icons a{
+
+width:46px;
+
+height:46px;
+
+font-size:18px;
+
+}
+
+}
+
+/*=========================================================
+  SMALL PHONES (400px)
+==========================================================*/
+
+@media (max-width:400px){
+
+.hero{
+
+padding:100px 15px 50px;
+
+}
+
+.hero h1{
+
+font-size:30px;
+
+}
+
+.hero h2{
+
+font-size:18px;
+
+}
+
+.typing{
+
+font-size:16px;
+
+}
+
+.hero p{
+
+font-size:14px;
+
+}
+
+.logo span{
+
+display:none;
+
+}
+
+.navbar{
+
+padding:12px 15px;
+
+}
+
+.profile-card{
+
+padding:20px;
+
+}
+
+.profile-card img{
+
+width:115px;
+
+height:115px;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+.card i{
+
+font-size:34px;
+
+}
+
+.card h3{
+
+font-size:18px;
+
+}
+
+}
+
+/*=========================================================
+  EXTRA SMALL (320px)
+==========================================================*/
+
+@media (max-width:320px){
+
+.hero h1{
+
+font-size:26px;
+
+}
+
+.hero h2{
+
+font-size:16px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+max-width:100%;
+
+font-size:14px;
+
+padding:14px 18px;
+
+}
+
+.profile-card{
+
+padding:16px;
+
+}
+
+}
